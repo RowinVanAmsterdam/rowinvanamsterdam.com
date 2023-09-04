@@ -1,0 +1,38 @@
+/* Colors are defined in RGB value and will be transformed to RGBA by the <alpha-value> placeholder in tailwind.config.js for opacity support */
+/* see https://tailwindcss.com/docs/customizing-colors#using-css-variables for additional information */
+/* Values are based heavily on https://tailwindcss.com/docs/customizing-colors */
+
+@layer base {
+    :root,
+    .theme-light {
+        /* THEME COLORS */
+        --color-primary-50: 8 67 103;
+        --color-primary-100: 49 49 49;
+        --color-primary-150: 28 28 28;
+
+        --color-secondary-100: 75 201 255;
+        --color-secondary-150: 15 174 241;
+
+        /* SEMANTIC COLORS */
+        --color-error-50: 229 115 115;
+        --color-error-100: 244 67 54;
+        --color-error-150: 211 47 47;
+
+        --color-success-50: 129 199 132;
+        --color-success-100: 102 187 106;
+        --color-success-150: 56 142 60;
+
+        --color-warning-50: 255 183 77;
+        --color-warning-100: 255 167 38;
+        --color-warning-150: 245 124 0;
+
+        --color-info-50: 79 195 247;
+        --color-info-100: 41 182 246;
+        --color-info-150: 2 136 209;
+    }
+
+    .theme-dark {
+        --color-text-base: 16 3 3;
+        --color-fill: 224 1 1;
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "name": "Rowin van Amsterdam",
+    "profilePicture": "/images/profile-pictures/profile-picture.jpg",
+    "contact": {
+        "email": "rowinvanamsterdam@rva-services.com",
+        "phone": ""
+    },
+    "tags": ["Software Engineer", "Web3 Developer", "Background in UX Design"],
+    "socials": [
+        {
+            "name": "Twitter",
+            "username": "RowVanAmsterdam",
+            "url": "https://twitter.com/RowVanAmsterdam"
+        },
+        {
+            "name": "GitHub",
+            "username": "RowinVanAmsterdam",
+            "url": "https://github.com/RowinVanAmsterdam"
+        },
+        {
+            "name": "LinkedIn",
+            "username": "RowinVanAmsterdam",
+            "url": "https://linkedin.com/in/RowinVanAmsterdam/"
+        },
+        {
+            "name": "Instagram",
+            "username": "RowinVanAmsterdam",
+            "url": "https://instagram.com/RowinVanAmsterdam"
+        }
+    ]
+}
