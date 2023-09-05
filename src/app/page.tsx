@@ -1,8 +1,13 @@
+import { RVALogoAnimated } from "@/shared/Logo/RVALogoAnimated";
 
-export default function Home() {
+const Home = () => {
     return (
-        <div className="flex min-h-screen flex-col items-center justify-between p-24 text-secondary-100">
-           skdf
-        </div>
+        <>
+            <section className="container flex w-full h-full max-w-2xl flex-col items-center justify-center">
+                <RVALogoAnimated initialRgbaColor="rgba(49, 49, 49, 0)" rgbaColor="rgba(49, 49, 49, 1)" />
+            </section>
+        </>
     );
-}
+};
+
+export default Home;
