@@ -9,6 +9,7 @@ import { HeaderMenuMobile } from "./HeaderMenuMobile";
 import { useSizes } from "@/utils/useSize";
 import tailwindConfig from "../../../tailwind.config";
 import resolveConfig from "tailwindcss/resolveConfig";
+import { Container } from "@/shared/Container";
 
 export const Header = () => {
     const { theme } = resolveConfig(tailwindConfig) as any;
@@ -40,15 +41,15 @@ export const Header = () => {
         <HeaderElement>
             <HeaderLogo />
             <HeaderMenu />
-            <Socials />
+            <Socials className="h-full" />
         </HeaderElement>
     );
 };
 
 const HeaderElement = ({ children }: { children: React.ReactNode }) => {
     return (
-        <header className="fixed top-0 left-0 right-0 z-70 h-12 border-b-2 border-gray-200  bg-white py-2">
-            <div className="container mx-auto flex h-full max-w-[1700px] flex-wrap items-center justify-between">{children}</div>
+        <header className="fixed top-0 left-0 right-0 z-50 h-12 border-b-2 border-gray-200  bg-white py-2">
+            <Container maxWidth="max-w-[1700px]" className="flex w-full h-full flex-wrap items-center justify-between">{children}</Container>
         </header>
     );
 };

@@ -10,7 +10,7 @@ export const Socials = (props: MySocialsProps) => {
     const { className } = props;
 
     return (
-        <ul className={`${className} flex justify-end gap-2 lg:flex-1`}>
+        <ul className={`${className ?? ''} flex justify-end gap-2 lg:flex-1`}>
             {profile.socials.map((social) => (
                 <li key={social.name}>
                     <Link

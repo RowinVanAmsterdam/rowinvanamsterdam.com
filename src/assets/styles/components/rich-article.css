@@ -1,0 +1,85 @@
+@layer base {
+    .rich-article {
+        @apply text-lg;
+    }
+
+    /* #region Typography */
+    .rich-article h1 {
+        @apply mb-4 mt-16;
+    }
+
+    .rich-article h2 {
+        @apply h4 mb-4 mt-14 normal-case;
+    }
+
+    .rich-article h3 {
+        @apply h5 normal-case;
+    }
+
+    .rich-article h4 {
+        @apply h6 normal-case;
+    }
+
+    .rich-article h5 {
+        @apply h6;
+    }
+
+    .rich-article h3,
+    h4,
+    h5,
+    h6 {
+        @apply mb-4 mt-14;
+    }
+
+    .rich-article p {
+        @apply my-6;
+    }
+    /* #endregion Typography */
+
+    /* #region Images */
+    .rich-article img {
+        @apply w-full rounded-md;
+    }
+
+    .rich-article img figcaption {
+        @apply ml-auto block text-right text-xs;
+    }
+    /* #endregion Images */
+
+    /* #region Blockquote */
+    .rich-article blockquote {
+        @apply my-6 flex gap-5 rounded-md bg-sky-100 px-5 py-4 text-base text-primary-50;
+    }
+
+    .rich-article blockquote .icon {
+        @apply mt-0.5 shrink-0;
+    }
+
+    .rich-article blockquote p {
+        @apply m-0;
+    }
+    /* #endregion Blockquote */
+
+    /* #region Link */
+    .rich-article a {
+        @apply p-0 text-secondary-100 underline hover:text-secondary-150 active:text-secondary-100/50;
+    }
+    /* #endregion Link */
+
+    /* #region Lists */
+    .rich-article ul,
+    .rich-article ol {
+        @apply my-6 ml-5;
+    }
+    /* #endregion Lists */
+
+    /* #region Code */
+    .rich-article pre {
+        @apply text-sm;
+    }
+
+    .rich-article code {
+        @apply rounded-sm bg-neutral-200 px-1.5 py-1 text-xs;
+    }
+    /* #endregion Code */
+}
