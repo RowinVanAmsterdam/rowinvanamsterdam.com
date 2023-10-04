@@ -28,7 +28,7 @@ const Slug = (props: BlogArticleProps) => {
     const formattedDate = formatDate(metadata.date);
     const estimatedReadingTime = estimateReadingTime(content);
 
-    // add 404 page if slug doesn't exist
+    // add 404 page if directory or slug doesn't exist
 
     return (
         <>
