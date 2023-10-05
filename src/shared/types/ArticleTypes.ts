@@ -9,7 +9,6 @@ export type ArticleMetadataTypes = {
     bannerAlt: string;
     bannerCaption?: string;
     bannerCaptionLink?: string;
-    discussOnTwitterId?: string;
 };
 
 export type ArticleTypes = {

@@ -1,40 +1,46 @@
 import { ArticleMetadata } from '@/Article/ArticleMetadata';
 import { Comments } from '@/Article/Comments';
-import { findDirectoryOfPost } from '@/Article/helpers/getBlogArticles';
-import { parseMarkdown } from '@/Article/helpers/parseMarkdown';
+import { getPostBySlug } from '@/api/api';
 import { Container } from '@/shared/Container';
 import { Markdown } from '@/shared/RichContent/Markdown';
 import { ShareOnSocials } from '@/shared/Socials/ShareOnSocials';
 import { Typography } from '@/shared/Typography';
-import { estimateReadingTime } from '@/shared/helpers/estimateReadingTime';
-import { formatDate } from '@/shared/helpers/formatDate';
-import fs from 'fs';
+import { getEstimateReadingTime } from '@/shared/helpers/getEstimateReadingTime';
+import { getFormattedDate } from '@/shared/helpers/getFormattedDate';
+import { getPageTitle } from '@/utils/getPageTitle';
+import { Metadata } from 'next';
 import Image from 'next/image';
+import profile from '../../../assets/static/rowinvanamsterdam.json';
+import { notFound } from 'next/navigation';
 
-type BlogArticleProps = {
+type BlogPostProps = {
     params: {
         slug: string;
     };
 };
 
-const Slug = (props: BlogArticleProps) => {
+export async function generateMetadata(props: BlogPostProps): Promise<Metadata> {
     const { params } = props;
-    
-    const directory = findDirectoryOfPost(params.slug);
-    const fileContent = fs.readFileSync(`posts/${directory}/` + params.slug + '.md').toString();
-    const currentArticle = parseMarkdown(fileContent);
-    const { metadata, content } = currentArticle;
+    const post = getPostBySlug(params.slug);
 
-    const formattedDate = formatDate(metadata.date);
-    const estimatedReadingTime = estimateReadingTime(content);
+    return {
+        title: getPageTitle(post?.metadata.title || ''),
+        description: profile.subtitle
+    };
+}
 
-    // add 404 page if directory or slug doesn't exist
+const Slug = (props: BlogPostProps) => {
+    const { params } = props;
+    const post = getPostBySlug(params.slug);
+
+    if (!post) {
+        notFound();
+    }
 
     return (
         <>
-           
             <Image
-                src={metadata.banner}
+                src={post.metadata.banner}
                 alt="Article thumbnail"
                 width={0}
                 height={0}
@@ -46,27 +52,27 @@ const Slug = (props: BlogArticleProps) => {
             <Container maxWidth="5xl" className=" mb-12 grid grid-cols-1 gap-8 md:mt-12 md:grid-cols-[1fr_minmax(0,_700px)_1fr]">
                 <div className="ml-auto md:row-start-2 md:ml-0">
                     <ShareOnSocials
-                        url={`https://rowinvanamsterdam.com/blog/${metadata.slug}`}
-                        text={metadata.title}
+                        url={`https://rowinvanamsterdam.com/blog/${post.metadata.slug}`}
+                        text={post.metadata.title}
                         platforms={['twitter', 'facebook', 'linkedin', 'whatsapp']}
                     />
                 </div>
 
                 <div className="md:col-start-1 md:col-end-4">
                     <Typography component="h1" variant="h3" className="col-span-3 text-center">
-                        {metadata.title}
+                        {post.metadata.title}
                     </Typography>
 
                     <ArticleMetadata
-                        author={metadata.author}
-                        authorImage={metadata.authorImage}
-                        date={formattedDate}
-                        readingTimeInMinutes={estimatedReadingTime}
+                        author={post.metadata.author}
+                        authorImage={post.metadata.authorImage}
+                        date={getFormattedDate(post.metadata.date)}
+                        readingTimeInMinutes={getEstimateReadingTime(post.content)}
                     />
                 </div>
 
                 <div className="self-center pb-3 md:col-start-2 md:col-end-2">
-                    <Markdown value={content} wrapper="article" openExternalLinksInNewTab />
+                    <Markdown value={post.content} wrapper="article" openExternalLinksInNewTab />
                     <Comments />
                 </div>
             </Container>

@@ -1,14 +1,14 @@
 import { Typography } from '@/shared/Typography';
-import { estimateReadingTime } from '@/shared/helpers/estimateReadingTime';
-import { formatDate } from '@/shared/helpers/formatDate';
+import { getEstimateReadingTime } from '@/shared/helpers/getEstimateReadingTime';
+import { getFormattedDate } from '@/shared/helpers/getFormattedDate';
 import { ArticleTypes } from '@/shared/types/ArticleTypes';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export const ArticleCard = (props: ArticleTypes) => {
     const { metadata, content } = props;
-    const formattedDate = formatDate(metadata.date);
-    const estimatedReadingTime = estimateReadingTime(content);
+    const formattedDate = getFormattedDate(metadata.date);
+    const estimatedReadingTime = getEstimateReadingTime(content);
 
     return (
         <Link
