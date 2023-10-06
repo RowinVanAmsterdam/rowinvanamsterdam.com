@@ -29,7 +29,7 @@ type BlogPostProps = {
 //     };
 // }
 
-const Slug = (props: BlogPostProps) => {
+const Slug = async (props: BlogPostProps) => {
     const { params } = props;
     const post = getAllBlogPosts();
     console.log('post', post)
