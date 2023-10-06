@@ -19,20 +19,20 @@ type BlogPostProps = {
     };
 };
 
-export async function generateMetadata(props: BlogPostProps): Promise<Metadata> {
-    const { params } = props;
-    const post = getPostBySlug();
-    console.log(post)
+// export async function generateMetadata(props: BlogPostProps): Promise<Metadata> {
+//     const { params } = props;
+//     const post = getPostBySlug(params.slug);
 
-    return {
-        title: getPageTitle(''),
-        description: profile.subtitle
-    };
-}
+//     return {
+//         title: getPageTitle(post?.metadata.title || ''),
+//         description: profile.subtitle
+//     };
+// }
 
 const Slug = (props: BlogPostProps) => {
     const { params } = props;
-    // const post = getPostBySlug(params.slug);
+    const post = getPostBySlug();
+    console.log('post', post)
 
     // if (!post) {
     //     notFound();
