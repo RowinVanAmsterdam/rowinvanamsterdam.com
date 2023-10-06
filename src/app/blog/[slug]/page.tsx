@@ -31,8 +31,7 @@ type BlogPostProps = {
 
 const Slug = (props: BlogPostProps) => {
     const { params } = props;
-    const post = getPostBySlug();
-    console.log('post', post)
+  
 
     // if (!post) {
     //     notFound();
