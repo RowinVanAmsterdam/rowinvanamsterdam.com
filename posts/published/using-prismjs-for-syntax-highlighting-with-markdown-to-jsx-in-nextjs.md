@@ -1,6 +1,6 @@
 ---
 slug: 'using-prismjs-for-syntax-highlighting-with-markdown-to-jsx-in-nextjs'
-date: '2023-10-04'
+date: '2023-10-06'
 title: 'Using PrismJS for syntax highlighting with markdown-to-jsx in Next.js'
 description: 'A comprehensive guide on implementing syntax highlighting using PrismJS in Next.js applications with markdown-to-jsx.'
 author: 'Rowin van Amsterdam'
