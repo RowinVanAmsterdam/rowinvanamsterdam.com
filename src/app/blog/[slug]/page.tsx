@@ -19,16 +19,6 @@ type BlogPostProps = {
     };
 };
 
-export async function generateMetadata(props: BlogPostProps): Promise<Metadata> {
-    const { params } = props;
-    const post = getPostBySlug(params.slug);
-
-    return {
-        title: getPageTitle(post?.metadata.title || ''),
-        description: profile.subtitle
-    };
-}
-
 const Slug = (props: BlogPostProps) => {
     const { params } = props;
 
