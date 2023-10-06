@@ -31,7 +31,7 @@ export const Markdown = (props: MarkdownProps) => {
 
     return (
         <>
-            {/* <SyntaxHighlight /> */}
+            <SyntaxHighlight />
             <MarkdownToJsx className="rich-article" options={markDownToJsxOptions}>
                 {value}
             </MarkdownToJsx>
