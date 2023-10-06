@@ -1,6 +1,6 @@
 import { ArticleMetadata } from '@/Article/ArticleMetadata';
 import { Comments } from '@/Article/Comments';
-import { getPostBySlug } from '@/api/api';
+import { getAllBlogPosts, getPostBySlug } from '@/api/api';
 import { Container } from '@/shared/Container';
 import { Markdown } from '@/shared/RichContent/Markdown';
 import { ShareOnSocials } from '@/shared/Socials/ShareOnSocials';
@@ -31,7 +31,8 @@ type BlogPostProps = {
 
 const Slug = (props: BlogPostProps) => {
     const { params } = props;
-  
+    const post = getAllBlogPosts();
+    console.log('post', post)
 
     // if (!post) {
     //     notFound();
