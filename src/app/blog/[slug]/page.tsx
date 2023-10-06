@@ -19,17 +19,28 @@ type BlogPostProps = {
     };
 };
 
-const Slug = (props: BlogPostProps) => {
+export async function generateMetadata(props: BlogPostProps): Promise<Metadata> {
     const { params } = props;
     const post = getPostBySlug(params.slug);
 
-    if (!post) {
-        notFound();
-    }
+    return {
+        title: getPageTitle(post?.metadata.title || ''),
+        description: profile.subtitle
+    };
+}
+
+const Slug = (props: BlogPostProps) => {
+    const { params } = props;
+    // const post = getPostBySlug(params.slug);
+
+    // if (!post) {
+    //     notFound();
+    // }
 
     return (
         <>
-            <Image
+            <h1>Hello world</h1>
+            {/* <Image
                 src={post.metadata.banner}
                 alt="Article thumbnail"
                 width={0}
@@ -65,7 +76,7 @@ const Slug = (props: BlogPostProps) => {
                     <Markdown value={post.content} wrapper="article" openExternalLinksInNewTab />
                     <Comments />
                 </div>
-            </Container>
+            </Container> */}
         </>
     );
 };
