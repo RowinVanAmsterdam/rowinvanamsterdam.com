@@ -24,7 +24,7 @@ export const getAllBlogPosts = () => {
     return postsSortedByDate;
 };
 
-export function getPostBySlug(slug?: string) {
+export const getPostBySlug = () => {
     // const allPosts = getAllBlogPosts();
     // return allPosts.find((post) => post.metadata.slug === slug);
     return 'allPosts';
