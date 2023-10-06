@@ -11,6 +11,7 @@ import { getPageTitle } from '@/utils/getPageTitle';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import profile from '../../../assets/static/rowinvanamsterdam.json';
+import { notFound } from 'next/navigation';
 
 type BlogPostProps = {
     params: {
@@ -18,23 +19,22 @@ type BlogPostProps = {
     };
 };
 
-// export async function generateMetadata(props: BlogPostProps): Promise<Metadata> {
-//     const { params } = props;
-//     const post = getPostBySlug(params.slug);
+export async function generateMetadata(props: BlogPostProps): Promise<Metadata> {
+    const { params } = props;
+    const post = getPostBySlug(params.slug);
 
-//     return {
-//         title: getPageTitle(post?.metadata.title || ''),
-//         description: profile.subtitle
-//     };
-// }
+    return {
+        title: getPageTitle(post?.metadata.title || ''),
+        description: profile.subtitle
+    };
+}
 
 const Slug = (props: BlogPostProps) => {
     const { params } = props;
     const post = getPostBySlug(params.slug);
 
     if (!post) {
-      console.log('not found')
-      return null;
+        notFound();
     }
 
     return (
