@@ -21,7 +21,7 @@ type BlogPostProps = {
 
 export async function generateMetadata(props: BlogPostProps): Promise<Metadata> {
     const { params } = props;
-    const post = getPostBySlug(params.slug);
+    // const post = getPostBySlug(params.slug);
 
     return {
         title: getPageTitle(''),
