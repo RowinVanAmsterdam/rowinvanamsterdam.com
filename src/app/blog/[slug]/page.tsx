@@ -24,7 +24,7 @@ export async function generateMetadata(props: BlogPostProps): Promise<Metadata> 
     const post = getPostBySlug(params.slug);
 
     return {
-        title: getPageTitle(post?.metadata.title || ''),
+        title: getPageTitle(''),
         description: profile.subtitle
     };
 }
