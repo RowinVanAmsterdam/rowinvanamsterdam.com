@@ -15,6 +15,7 @@
 # production
 /build
 /posts/drafts/*
+!posts/drafts/.gitkeep
 
 # misc
 .DS_Store
