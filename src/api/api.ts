@@ -1,17 +1,17 @@
 import fs from 'fs';
 import { parseMarkdown } from '../Article/helpers/parseMarkdown';
 import { environment } from '@/utils/environment';
+import path from 'path';
 
-const publishedPostsList = fs.readdirSync('posts/published');
-const draftPostsList = fs.readdirSync('posts/drafts');
+const publishedPostsList = fs.readdirSync('./posts/published');
+const draftPostsList = fs.readdirSync('./posts/drafts');
 const showDraftPosts = environment.isDevelopment && process.env.SHOW_DRAFTS === 'true';
+const postsDirectory = path.join(process.cwd(), 'posts');
 
 const getPosts = (directory: string, fileList: string[]) => {
     return fileList.map((file) => {
-
-            const fileContent = fs.readFileSync(`posts/${directory}/${file}`, 'utf8');
-            return parseMarkdown(fileContent);
-       
+        const fileContent = fs.readFileSync(postsDirectory + `/${directory}/${file}`, 'utf8');
+        return parseMarkdown(fileContent);
     });
 };
 
@@ -24,8 +24,7 @@ export const getAllBlogPosts = () => {
     return postsSortedByDate;
 };
 
-export const getPostBySlug = () => {
-    // const allPosts = getAllBlogPosts();
-    // return allPosts.find((post) => post.metadata.slug === slug);
-    return 'allPosts';
-}
+export const getPostBySlug = (slug: string) => {
+    const allPosts = getAllBlogPosts();
+    return allPosts.find((post) => post.metadata.slug === slug);
+};

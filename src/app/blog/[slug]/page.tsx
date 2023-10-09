@@ -1,6 +1,6 @@
 import { ArticleMetadata } from '@/Article/ArticleMetadata';
 import { Comments } from '@/Article/Comments';
-import { getAllBlogPosts, getPostBySlug } from '@/api/api';
+import { getPostBySlug } from '@/api/api';
 import { Container } from '@/shared/Container';
 import { Markdown } from '@/shared/RichContent/Markdown';
 import { ShareOnSocials } from '@/shared/Socials/ShareOnSocials';
@@ -19,29 +19,28 @@ type BlogPostProps = {
     };
 };
 
-// export async function generateMetadata(props: BlogPostProps): Promise<Metadata> {
-//     const { params } = props;
-//     const post = getPostBySlug(params.slug);
+export async function generateMetadata(props: BlogPostProps): Promise<Metadata> {
+    const { params } = props;
+    const post = getPostBySlug(params.slug);
 
-//     return {
-//         title: getPageTitle(post?.metadata.title || ''),
-//         description: profile.subtitle
-//     };
-// }
+    return {
+        title: getPageTitle(post?.metadata.title || ''),
+        description: profile.subtitle
+    };
+}
 
 const Slug = async (props: BlogPostProps) => {
     const { params } = props;
-    const post = getAllBlogPosts();
-    console.log('post', post)
+    const post = getPostBySlug(params.slug);
 
-    // if (!post) {
-    //     notFound();
-    // }
+    if (!post) {
+        notFound();
+    }
 
     return (
         <>
-            <h1>Hello world</h1>
-            {/* <Image
+           
+            <Image
                 src={post.metadata.banner}
                 alt="Article thumbnail"
                 width={0}
@@ -77,7 +76,7 @@ const Slug = async (props: BlogPostProps) => {
                     <Markdown value={post.content} wrapper="article" openExternalLinksInNewTab />
                     <Comments />
                 </div>
-            </Container> */}
+            </Container>
         </>
     );
 };
