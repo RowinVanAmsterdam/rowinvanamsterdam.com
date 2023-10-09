@@ -17,8 +17,8 @@ const getPosts = (directory: string, fileList: string[]) => {
 
 export const getAllBlogPosts = () => {
     const publishedPosts = getPosts('published', publishedPostsList);
-    const draftPosts = showDraftPosts ? getPosts('drafts', draftPostsList) : [];
-    const allPosts = [...publishedPosts, ...draftPosts];
+    // const draftPosts = showDraftPosts ? getPosts('drafts', draftPostsList) : [];
+    const allPosts = [...publishedPosts];
     const postsSortedByDate = allPosts.sort((a, b) => Number(new Date(b.metadata.date)) - Number(new Date(a.metadata.date)));
 
     return postsSortedByDate;
