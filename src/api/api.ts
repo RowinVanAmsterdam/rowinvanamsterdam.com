@@ -9,10 +9,12 @@ const allDraftPosts = fs.readdirSync(postsDirectory + '/drafts');
 const showDraftPosts = environment.isDevelopment && process.env.SHOW_DRAFTS === 'true';
 
 const getPosts = (directory: string, fileList: string[]) => {
-    return fileList.map((file) => {
-        const fileContent = fs.readFileSync(postsDirectory + `/${directory}/${file}`, 'utf8');
-        return parseMarkdown(fileContent);
-    });
+    return fileList
+        .filter((file) => file.endsWith('.md')) // Only include .md files
+        .map((file) => {
+            const fileContent = fs.readFileSync(path.join(postsDirectory, directory, file), 'utf8');
+            return parseMarkdown(fileContent);
+        });
 };
 
 export const getAllBlogPosts = () => {
