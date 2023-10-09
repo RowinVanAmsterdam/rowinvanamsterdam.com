@@ -5,11 +5,9 @@
   "scripts": {
     "clean": "rm -rf node_modules package-lock.json .next",
     "dev": "next dev",
-    "build": "npm run initializeDraftsFolder && next build",
+    "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "preinstall": "npm run initializeDraftsFolder",
-    "initializeDraftsFolder": "npx ts-node ./scripts/initializeDraftsFolder.ts"
+    "lint": "next lint"
   },
   "dependencies": {
     "@giscus/react": "^2.3.0",
