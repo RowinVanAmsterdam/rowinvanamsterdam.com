@@ -3,8 +3,8 @@ import { parseMarkdown } from '../Article/helpers/parseMarkdown';
 import { environment } from '@/utils/environment';
 import path from 'path';
 
-const publishedPostsList = fs.readdirSync('./posts/published');
-const draftPostsList = fs.readdirSync('./posts/drafts');
+const publishedPostsList = fs.readdirSync('posts/published');
+const draftPostsList = fs.readdirSync('posts/drafts');
 const showDraftPosts = environment.isDevelopment && process.env.SHOW_DRAFTS === 'true';
 const postsDirectory = path.join(process.cwd(), 'posts');
 
