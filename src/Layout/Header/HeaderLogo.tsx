@@ -4,7 +4,7 @@ import Link from "next/link";
 export const HeaderLogo = () => (
     <div className="flex lg:flex-1">
         <Link href="/" className="w-20" title="RVA Logo">
-            <RVALogo className="fill-primary-100" />
+            <RVALogo className="fill-rva-neutral-800" />
         </Link>
     </div>
 );

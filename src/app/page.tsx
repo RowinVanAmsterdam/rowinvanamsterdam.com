@@ -1,5 +1,5 @@
 import { FloatingCTA } from '@/shared/CTA/FloatingCTA';
-import { Container } from '@/shared/Container';
+import { Container } from '@/shared/Layout/Container';
 import { RVALogoAnimated } from '@/shared/Logo/RVALogoAnimated';
 
 const Home = () => {

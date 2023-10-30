@@ -31,7 +31,7 @@ export const AboutCard = (props: AboutTypes) => {
                 ))}
             </ul>
 
-            <IconButton variant="primary" icon="mail" href={`mailto:${contact.email}`} className="mt-6">
+            <IconButton variant="contained" icon="mail" href={`mailto:${contact.email}`} className="mt-6">
                 <Typography>Get in touch</Typography>
             </IconButton>
 

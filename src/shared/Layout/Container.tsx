@@ -1,3 +1,5 @@
+import { classNames } from '@/utils/classNames';
+
 type ContainerProps = {
     children: React.ReactNode;
     center?: boolean;
@@ -38,5 +40,5 @@ export const Container = (props: ContainerProps) => {
     const { children, center = true, className, maxWidth = '2xl' } = props;
     const tailwindUtility = getTailwindUtility(maxWidth);
 
-    return <div className={`${className ?? ''} ${tailwindUtility} ${center ? 'mx-auto' : ''} px-4`}>{children}</div>;
+    return <div className={classNames(className, tailwindUtility, center ? 'mx-auto' : '', 'px-4')}>{children}</div>;
 };

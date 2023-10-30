@@ -1,6 +1,6 @@
 import { AboutCard } from '@/About/AboutCard';
 import { HeroBanner } from '@/Hero/HeroBanner';
-import { Container } from '@/shared/Container';
+import { Container } from '@/shared/Layout/Container';
 import profile from '../../assets/static/rowinvanamsterdam.json';
 import { getAllBlogPosts } from '@/api/api';
 import { ArticleGrid } from '@/Article/ArticleGrid';

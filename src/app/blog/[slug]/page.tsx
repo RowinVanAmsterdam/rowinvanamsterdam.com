@@ -1,7 +1,7 @@
 import { ArticleMetadata } from '@/Article/ArticleMetadata';
 import { Comments } from '@/Article/Comments';
 import { getPostBySlug } from '@/api/api';
-import { Container } from '@/shared/Container';
+import { Container } from '@/shared/Layout/Container';
 import { Markdown } from '@/shared/RichContent/Markdown';
 import { ShareOnSocials } from '@/shared/Socials/ShareOnSocials';
 import { Typography } from '@/shared/Typography';

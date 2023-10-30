@@ -9,7 +9,7 @@ import { HeaderMenuMobile } from "./HeaderMenuMobile";
 import { useSizes } from "@/utils/useSize";
 import tailwindConfig from "../../../tailwind.config";
 import resolveConfig from "tailwindcss/resolveConfig";
-import { Container } from "@/shared/Container";
+import { Container } from "@/shared/Layout/Container";
 
 export const Header = () => {
     const { theme } = resolveConfig(tailwindConfig) as any;
@@ -32,7 +32,7 @@ export const Header = () => {
                 <span onClick={() => setIsMobileMenuOpen((prev) => !prev)} className="cursor-pointer hover:bg-gray-100 p-1 rounded">
                     <Icon name={isMobileMenuOpen ? "close" : "hamburger"} className="h-5 w-5" />
                 </span>
-                <HeaderMenuMobile isActive={isMobileMenuOpen} />
+                <HeaderMenuMobile setIsMobileMenuOpen={setIsMobileMenuOpen} isActive={isMobileMenuOpen} />
             </HeaderElement>
         );
     }
@@ -41,7 +41,7 @@ export const Header = () => {
         <HeaderElement>
             <HeaderLogo />
             <HeaderMenu />
-            <Socials className="h-full" />
+            <Socials className="h-full justify-end" />
         </HeaderElement>
     );
 };

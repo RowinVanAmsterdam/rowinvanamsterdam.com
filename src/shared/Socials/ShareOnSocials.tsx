@@ -35,7 +35,7 @@ export const ShareOnSocials = (props: ShareOnSocialsType) => {
                 {props.platforms.map((platform, i) => (
                     <li key={`${platform}-${i}`}>
                         <Link
-                            className="block rounded-md p-3 text-primary duration-150 ease-in-out hover:bg-white hover:text-secondary-100 hover:shadow active:text-secondary-150"
+                            className="block rounded-md p-3 text-primary duration-150 ease-in-out hover:bg-white hover:text-rva-400 hover:shadow active:text-rva-500"
                             href={getShareUrl(platform, props.url, props.text)}
                             target="_blank"
                             rel="noopener noreferrer"

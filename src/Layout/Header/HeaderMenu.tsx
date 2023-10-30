@@ -4,7 +4,12 @@ import { usePathname } from "next/navigation";
 import HeaderNavigation from "./static/HeaderNavigation.json";
 import Link from "next/link";
 
-export const HeaderMenu = () => {
+type HeaderMenuProps = {
+    setIsMobileMenuOpen?: (value: boolean) => void;
+};
+
+export const HeaderMenu = (props: HeaderMenuProps) => {
+    const { setIsMobileMenuOpen } = props;
     const pathname = usePathname();
     const isActive = (href: string) => pathname === href || (pathname === "/" && href === "/home");
 
@@ -14,6 +19,11 @@ export const HeaderMenu = () => {
                 <Link
                     href={item.href}
                     key={item.label}
+                    onClick={() => {
+                        if (setIsMobileMenuOpen) {
+                            setIsMobileMenuOpen(false);
+                        }
+                    }}
                     className={`${
                         isActive(`/${item.label.toLowerCase()}`) ? "opacity-100" : "opacity-40"
                     } block uppercase font-black w-full border-b  border-gray-100 px-5 py-2 duration-150 ease-in-out hover:opacity-100  hover:bg-gray-50 lg:border-0 lg:p-0 lg:hover:bg-transparent lg:hover:text-primary`}>

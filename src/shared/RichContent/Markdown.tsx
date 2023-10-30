@@ -4,6 +4,7 @@ import { RichContentLink } from './components/RichContentLink';
 import { RichContentBlockquote } from './components/RichContentBlockquote';
 import { RichContentPreBlock } from './components/RichContentPreBlock';
 import { SyntaxHighlight } from './SyntaxHighlight';
+import { classNames } from '@/utils/classNames';
 
 type MarkdownProps = {
     value: string;
@@ -32,7 +33,7 @@ export const Markdown = (props: MarkdownProps) => {
     return (
         <>
             <SyntaxHighlight />
-            <MarkdownToJsx className="rich-article" options={markDownToJsxOptions}>
+            <MarkdownToJsx className={classNames(className, "rich-article")} options={markDownToJsxOptions}>
                 {value}
             </MarkdownToJsx>
         </>

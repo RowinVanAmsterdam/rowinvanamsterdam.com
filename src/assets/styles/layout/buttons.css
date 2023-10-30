@@ -1,0 +1,65 @@
+@layer components {
+    .btn {
+        position: relative;
+        font-family: theme('fontFamily.headings');
+        font-weight: theme('fontWeight.bold');
+        font-size: theme('fontSize.sm');
+        line-height: theme('lineHeight.5');
+        display: flex;
+        align-items: center;
+        gap: theme('spacing.2');
+        border-radius: theme('borderRadius.md');
+        fill: currentColor;
+        cursor: pointer;
+        padding: theme('spacing.2') theme('spacing.4');
+        text-align: center;
+        text-transform: uppercase;
+        transition-duration: theme('transitionDuration.150');
+        transition-timing-function: theme('transitionTimingFunction.in-out');
+
+        &--contained {
+            background-color: theme('colors.rva-neutral.800');
+            color: theme('colors.white');
+
+            &:hover {
+                background-color: theme('colors.rva.400');
+            }
+
+            &:active {
+                background-color: theme('colors.rva.400/50%');
+            }
+        }
+
+        &--outlined {
+            background-color: theme('colors.rva.400');
+        }
+
+        &--text {
+            background-color: transparent;
+            color: theme('colors.rva-neutral.800');
+
+            &:hover {
+                color: theme('colors.rva.400');
+            }
+
+            &:active {
+                color: theme('colors.rva.400/50%');
+            }
+        }
+
+        &--disabled {
+            background-color: theme('colors.rva-neutral.800');
+            color: theme('colors.white');
+            opacity: 0.5;
+            cursor: not-allowed;
+
+            &:hover {
+                background-color: theme('colors.rva-neutral.800');
+            }
+
+            &:active {
+                background-color: theme('colors.rva-neutral.800');
+            }
+        }
+    }
+}

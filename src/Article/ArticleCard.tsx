@@ -31,7 +31,7 @@ export const ArticleCard = (props: ArticleTypes) => {
                 <Typography
                     component="h2"
                     variant="text-sm"
-                    className="font-bold normal-case duration-200 ease-in-out group-hover:text-secondary-100 group-active:text-secondary-150"
+                    className="font-bold normal-case duration-200 ease-in-out group-hover:text-rva-400 group-active:text-rva-500"
                 >
                     {metadata.title}
                 </Typography>

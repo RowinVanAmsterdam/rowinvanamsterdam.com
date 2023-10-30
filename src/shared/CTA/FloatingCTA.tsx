@@ -1,3 +1,4 @@
+import { classNames } from "@/utils/classNames";
 import { Button } from "../Buttons/Button";
 import { Typography } from "../Typography";
 
@@ -13,7 +14,7 @@ export const FloatingCTA = (props: FloatingCTAProps) => {
     const { title, subtitle, buttonLabel, buttonLink, className } = props;
 
     return (
-        <div className={`${className} bg-primary-100 text-white flex justify-between items-center rounded-md py-4 sm:py-6 pr-3 pl-6 gap-10 shadow-lg`}>
+        <div className={classNames(className, 'bg-rva-neutral-800 text-white flex justify-between items-center rounded-md py-4 sm:py-6 pr-3 pl-6 gap-10 shadow-lg')}>
             <div>
                 <Typography variant="text-xs" className="header opacity-50">
                     {subtitle}
@@ -22,7 +23,7 @@ export const FloatingCTA = (props: FloatingCTAProps) => {
                     {title}
                 </Typography>
             </div>
-            <Button variant="primary" href={buttonLink}>
+            <Button variant="contained" href={buttonLink}>
                 {buttonLabel}
             </Button>
         </div>
