@@ -6,15 +6,15 @@ import { Icon } from '@/utils/Icon/Icon';
 import { getLoadingIconLocation } from './helpers/getLoadingIconLocation';
 
 export const Button = (props: ButtonType) => {
-    const { children, variant, href, className, onClick, type, startIcon, endIcon, disabled, loading, loadingPosition } = props;
+    const { variant, href, className, onClick, type, disabled, loading } = props;
     const isDisabled = disabled || loading;
     const buttonClassNames = classNames('btn', getButtonVariant(variant), className, disabled ? 'btn--disabled' : '');
 
     if (href) {
         return (
-            <Link href={href} className={buttonClassNames}>
+            <a href={href} className={buttonClassNames}>
                 <ButtonContent {...props} />
-            </Link>
+            </a>
         );
     }
 

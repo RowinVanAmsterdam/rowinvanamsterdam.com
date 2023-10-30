@@ -30,8 +30,9 @@ export const AboutCard = (props: AboutTypes) => {
                     </li>
                 ))}
             </ul>
+            
 
-            <Button variant="contained" startIcon="mail" href={`mailto:${contact.email}`} className="mt-6">
+            <Button variant="contained" startIcon='mail'  href={`mailto:${contact.email}`} className="mt-6">
                 <Typography>Get in touch</Typography>
             </Button>
 
