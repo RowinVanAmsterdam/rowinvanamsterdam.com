@@ -1,4 +1,4 @@
-import { IconButton } from '@/shared/Buttons/IconButton';
+import { Button } from '@/shared/Buttons/Button';
 import { Socials } from '@/shared/Socials/Socials';
 import { Typography } from '@/shared/Typography';
 import { AboutTypes } from '@/shared/types/AboutTypes';
@@ -31,9 +31,9 @@ export const AboutCard = (props: AboutTypes) => {
                 ))}
             </ul>
 
-            <IconButton variant="contained" icon="mail" href={`mailto:${contact.email}`} className="mt-6">
+            <Button variant="contained" startIcon="mail" href={`mailto:${contact.email}`} className="mt-6">
                 <Typography>Get in touch</Typography>
-            </IconButton>
+            </Button>
 
             <Socials className="mt-4 text-slate-400" />
         </div>
