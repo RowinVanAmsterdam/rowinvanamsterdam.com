@@ -3,10 +3,18 @@ import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import profile from '../../../assets/static/rowinvanamsterdam.json';
 
+const whitelistedDomains = ['https://rowinvanamsterdam.com'];
+
 export async function POST(request: NextRequest, res: NextResponse) {
     try {
-        const res = await request.json();
-        const { name, email, message } = res;
+        // Check the Origin header to restrict access and allow only whitelisted domains
+        const origin = request.headers.get('Origin');
+        if (origin && !whitelistedDomains.includes(origin)) {
+            return Response.json({ message: 'Invalid origin' }, { status: 403 });
+        }
+
+        const body = await request.json();
+        const { name, email, message } = body;
 
         const transporter = nodemailer.createTransport({
             service: 'gmail',
