@@ -15,20 +15,24 @@ export async function POST(request: NextRequest, res: NextResponse) {
         if (origin !== null && !whitelistedDomains.includes(origin)) {
             return Response.json({ message: 'Forbidden' }, { status: 403 });
         }
-        
-        // Perform a null check for the Referer header
-        if (refererHeader === null) {
+
+        if (origin === null) {
             return Response.json({ message: 'Forbidden' }, { status: 403 });
         }
-        
-        // Extract the domain from the Referer header
-        const refererUrl = new URL(refererHeader);
-        const refererDomain = `${refererUrl.protocol}//${refererUrl.hostname}`;
-        
-        // Perform a domain check against the whitelisted domains
-        if (!whitelistedDomains.includes(refererDomain)) {
-            return Response.json({ message: 'Forbidden' }, { status: 403 });
-        }
+
+        // // Perform a null check for the Referer header
+        // if (refererHeader === null) {
+        //     return Response.json({ message: 'Forbidden' }, { status: 403 });
+        // }
+
+        // // Extract the domain from the Referer header
+        // const refererUrl = new URL(refererHeader);
+        // const refererDomain = `${refererUrl.protocol}//${refererUrl.hostname}`;
+
+        // // Perform a domain check against the whitelisted domains
+        // if (!whitelistedDomains.includes(refererDomain)) {
+        //     return Response.json({ message: 'Forbidden' }, { status: 403 });
+        // }
 
         const body = await request.json();
         const { name, email, message } = body;
