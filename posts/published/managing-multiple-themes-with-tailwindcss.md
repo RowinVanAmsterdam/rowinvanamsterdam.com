@@ -1,6 +1,6 @@
 ---
 slug: 'managing-multiple-themes-with-tailwindcss'
-date: '2023-10-03'
+date: '2024-10-03'
 title: 'Managing multiple themes with TailwindCSS'
 description: 'Discover how to efficiently manage multiple themes within your TailwindCSS project'
 author: 'Rowin van Amsterdam'
