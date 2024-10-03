@@ -71,6 +71,10 @@
     .rich-article ol {
         @apply my-6 ml-5;
     }
+
+    .rich-article ul {
+        @apply list-disc;
+    }
     /* #endregion Lists */
 
     /* #region Code */
