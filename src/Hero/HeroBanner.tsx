@@ -14,7 +14,7 @@ export const HeroBanner = (props: HeroBannerProps) => {
             <Container maxWidth="4xl" className="flex h-full w-full flex-col items-center justify-center text-center">
                 {subtitle && (
                     <Typography component="h2" variant="h5" className="mb-1 font-light tracking-[.625em]">
-                        {subtitle}
+                        this is the subtitle from branch tuesday
                     </Typography>
                 )}
 
